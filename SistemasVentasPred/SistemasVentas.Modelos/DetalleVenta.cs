@@ -12,8 +12,8 @@ namespace SistemasVentas.Modelos
         public int IdVenta { get; set; }
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
-        public Decimal PrecioVenta { get; set; }
-        public Decimal SubTotal { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public decimal SubTotal { get; set; }
         public string Estado { get; set; }
     }
 }

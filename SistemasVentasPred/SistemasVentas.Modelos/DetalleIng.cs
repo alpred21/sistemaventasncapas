@@ -13,9 +13,9 @@ namespace SistemasVentas.Modelos
         public int IdProducto { get; set; }
         public DateTime FechaVenc { get; set; }
         public int Cantidad { get; set; }
-        public Decimal PrecioCosto { get; set; }
-        public Decimal PrecioVenta { get; set; }
-        public Decimal Subtotal { get; set; }
+        public decimal PrecioCosto { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public decimal SubTotal { get; set; }
         public string Estado { get; set; }
     }
 }
