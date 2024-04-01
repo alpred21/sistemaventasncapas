@@ -1,70 +1,83 @@
-﻿using SistemaVentas.Modelos;
+﻿using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemasVentas.DAL
 {
-    public class ProductoDal
+    public class ProductoDAL
     {
         public DataTable ListarProductoDal()
         {
-            string consulta = "select * from Producto";
+            string consulta = "select * from producto";
             DataTable Lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return Lista;
-
         }
-        public void InsertarProductoDal(Producto producto)
+
+        public void InsertarProductoDAL(Producto producto)
         {
-            string consulta = "insert into producto values('" + producto.IdTipoProd + "'," +
-                                                           "'" + producto.IdMarca + "'," +
-                                                           "'" + producto.Nombre + "'," +
-                                                           "'" + producto.CodigoBarra + "'," +
-                                                           "'" + producto.Unidad + "'," +
-                                                           "'" + producto.Descripcion + "'," +
-                                                           "'Activo')";
+            string consulta = "insert into producto values(" + producto.IdTipoProd + "," +
+                                                          "" + producto.IdMarca + "," +
+                                                          "'" + producto.Nombre + "'," +
+                                                          "'" + producto.CodigoBarra + "'," +
+                                                          "'" + producto.Unidad + "'," +
+                                                          "'" + producto.Descripcion + "'," +
+                                                          "'Activo')";
             conexion.Ejecutar(consulta);
         }
-        public Producto ObtenerProductoId(int id)
+
+        public Producto ObtenerProductoIdDal(int id)
         {
-            string consulta = "SELECT * FROM producto WHERE idProducto = " + id;
+            string consulta = "select * from producto where idproducto=" + id;
             DataTable tabla = conexion.EjecutarDataTabla(consulta, "asdas");
-            Producto producto = new Producto();
+            Producto p= new Producto();
             if (tabla.Rows.Count > 0)
             {
-                producto.IdProducto = Convert.ToInt32(tabla.Rows[0]["idProducto"]);
-                producto.IdTipoProd = Convert.ToInt32(tabla.Rows[0]["idTipoProd"]);
-                producto.IdMarca = Convert.ToInt32(tabla.Rows[0]["idMarca"]);
-                producto.Nombre = tabla.Rows[0]["nombre"].ToString();
-                producto.CodigoBarra = tabla.Rows[0]["codigoBarra"].ToString();
-                producto.Unidad = Convert.ToInt32(tabla.Rows[0]["unidad"]);
-                producto.Descripcion = tabla.Rows[0]["descripcion"].ToString();
-                producto.Estado = tabla.Rows[0]["estado"].ToString();
+                p.IdProducto = Convert.ToInt32(tabla.Rows[0]["idproducto"]);
+                p.IdTipoProd = Convert.ToInt32(tabla.Rows[0]["idtipoprod"]);
+                p.IdMarca = Convert.ToInt32(tabla.Rows[0]["idmarca"]);
+                p.Nombre = tabla.Rows[0]["nombre"].ToString();
+                p.CodigoBarra = tabla.Rows[0]["codigobarra"].ToString();
+                p.Unidad = Convert.ToInt32(tabla.Rows[0]["unidad"]);
+                p.Descripcion = tabla.Rows[0]["descripcion"].ToString();
+                p.Estado = tabla.Rows[0]["estado"].ToString();
             }
-            return producto;
+            return p;
+
         }
 
-        public void EditarProductoDal(Producto producto)
+        public void EditarProductoDal(Producto p)
         {
-            string consulta = "UPDATE producto SET idTipoProd = " + producto.IdTipoProd +
-                              ", idMarca = " + producto.IdMarca +
-                              ", nombre = '" + producto.Nombre +
-                              "', codigoBarra = '" + producto.CodigoBarra +
-                              "', unidad = " + producto.Unidad +
-                              ", descripcion = '" + producto.Descripcion +
-                              "', estado = '" + producto.Estado + "' " +
-                              "WHERE idProducto = " + producto.IdProducto;
+            string consulta = "update producto set idtipoprod=" + p.IdTipoProd + "," +
+                                                        "idmarca=" + p.IdMarca + "," +
+                                                        "nombre='" + p.Nombre + "'," +
+                                                        "codigobarra='" + p.CodigoBarra + "'," +
+                                                        "unidad=" + p.Unidad + "," +
+                                                        "descripcion='" + p.Descripcion + "'," +
+                                                        "estado='" + p.Estado + "' " +
+                                                "where idproducto=" + p.IdProducto;
             conexion.Ejecutar(consulta);
         }
-
         public void EliminarProductoDal(int id)
         {
-            string consulta = "DELETE FROM producto WHERE idProducto = " + id;
+            string consulta = "delete from producto where idproducto=" + id;
             conexion.Ejecutar(consulta);
         }
 
+        public DataTable ProductoDatosDal()
+        {
+            string consulta = " SELECT TIPOPROD.NOMBRE, MARCA.NOMBRE AS Expr1, PRODUCTO.NOMBRE AS Expr2,  " +
+                               " PRODUCTO.CODIGOBARRA, PRODUCTO.UNIDAD, PRODUCTO.DESCRIPCION" +
+                               " FROM PRODUCTO INNER JOIN" +
+                               " TIPOPROD ON PRODUCTO.IDTIPOPROD = TIPOPROD.IDTIPOPROD INNER JOIN" +
+                               "  MARCA ON PRODUCTO.IDMARCA = MARCA.IDMARCA";
+
+            return conexion.EjecutarDataTabla(consulta, "fsdf");
+
+        }
     }
 }

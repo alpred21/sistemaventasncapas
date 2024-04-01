@@ -1,39 +1,44 @@
-﻿using System;
+﻿using SistemasVentas.DAL;
+using SistemasVentas.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SistemasVentas.DAL;
-using SistemaVentas.Modelos;
 
 namespace SistemasVentas.BSS
 {
-    public class MarcaBss
+    public class MarcaBSS
     {
-        MarcaDal dal = new MarcaDal();
+        MarcaDAL dal = new MarcaDAL();
         public DataTable ListarMarcaBss()
         {
             return dal.ListarMarcaDal();
         }
         public void InsertarMarcaBss(Marca marca)
         {
-            dal.InsertarMarcaDal(marca);
-        }
-        public Marca ObtenerMarcaId(int id)
-        {
-            return dal.ObtenerMarcaId(id);
+            dal.InsertarMarcaDAL(marca);
         }
 
-        public void EditarMarcaBss(Marca marca)
+        public Marca ObtenerMarcaIdBss(int id)
         {
-            dal.EditarMarcaDal(marca);
+            return dal.ObtenerMarcaIdDal(id);
+        }
+
+        public void EditarMarcaBss(Marca m)
+        {
+            dal.EditarMarcaDal(m);
         }
 
         public void EliminarMarcaBss(int id)
         {
             dal.EliminarMarcaDal(id);
         }
+
+        public DataTable MarcaDatosBSS()
+        {
+            return dal.MarcaDatosDal();
+        }
     }
-  
 }

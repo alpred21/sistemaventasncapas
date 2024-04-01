@@ -1,38 +1,43 @@
-﻿using System;
+﻿using SistemasVentas.DAL;
+using SistemasVentas.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SistemasVentas.DAL;
-using SistemaVentas.Modelos;
 
 namespace SistemasVentas.BSS
 {
-    public class TipoProdBss
+    public class TipoProdBSS
     {
-        TipoProdDal dal = new TipoProdDal();
+        TipoProdDAL dal = new TipoProdDAL();
         public DataTable ListarTipoProdBss()
         {
             return dal.ListarTipoProdDal();
         }
-        public void InsertarTipoProdBss(TipoProd tipoProd)
+        public void InsertarTipoProdBss(TipoProd tipoprod)
         {
-            dal.InsertarTipoProdDal(tipoProd);
+            dal.InsertarTipoProdDAL(tipoprod);
         }
-        public TipoProd ObtenerTipoProdId(int id)
+        public TipoProd ObtenerTipoProdIdBss(int id)
         {
-            return dal.ObtenerTipoProdId(id);
+            return dal.ObtenerTipoProdIdDal(id);
         }
 
-        public void EditarTipoProdBss(TipoProd tipoProd)
+        public void EditarTipoProdBss(TipoProd t)
         {
-            dal.EditarTipoProdDal(tipoProd);
+            dal.EditarTipoProdDal(t);
         }
 
         public void EliminarTipoProdBss(int id)
         {
             dal.EliminarTipoProdDal(id);
+        }
+
+        public DataTable TipoProdDatosBSS()
+        {
+            return dal.TipoProdDatosDal();
         }
     }
 }

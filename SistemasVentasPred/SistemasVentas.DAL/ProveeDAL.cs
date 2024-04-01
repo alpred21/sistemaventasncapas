@@ -1,4 +1,4 @@
-﻿using SistemaVentas.Modelos;
+﻿using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,57 +8,63 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.DAL
 {
-    public class ProveeDal
+    public class ProveeDAL
     {
         public DataTable ListarProveeDal()
         {
-            string consulta = "select * from Provee";
+            string consulta = "select * from provee";
             DataTable Lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return Lista;
-
         }
-        public void InsertarProveeDal(Provee provee)
+        public void InsertarProveeDAL(Provee provee)
         {
-            string consulta = "insert into provee values('" + provee.IdProducto + "'," +
-                                                           "'" + provee.IdProducto + "'," +
-                                                         "'" + provee.IdProveedor + "'," +
-                                                         "'" + provee.Fecha.ToString("yyyy-MM-dd") + "'," +
-                                                          "'" + provee.Precio + "')";
-           
+            string consulta = "insert into provee values(" + provee.IdProducto + "," +
+                                                          "" + provee.IdProveedor + "," +
+                                                          "'" + provee.Fecha + "'," +
+                                                          " '" + provee.Precio + "')";
             conexion.Ejecutar(consulta);
         }
-        public Provee ObtenerProveeId(int id)
+        Provee p = new Provee();
+        public Provee ObtenerProveeIdDal(int id)
         {
-            string consulta = "SELECT * FROM provee WHERE idProvee = " + id;
+            string consulta = "select * from provee where idprovee=" + id;
             DataTable tabla = conexion.EjecutarDataTabla(consulta, "asdas");
-            Provee provee = new Provee();
             if (tabla.Rows.Count > 0)
             {
-                provee.IdProvee = Convert.ToInt32(tabla.Rows[0]["idProvee"]);
-                provee.IdProducto = Convert.ToInt32(tabla.Rows[0]["idProducto"]);
-                provee.IdProveedor = Convert.ToInt32(tabla.Rows[0]["idProveedor"]);
-                provee.Fecha = Convert.ToDateTime(tabla.Rows[0]["fecha"]);
-                provee.Precio = Convert.ToDecimal(tabla.Rows[0]["precio"]);
+                p.IdProvee = Convert.ToInt32(tabla.Rows[0]["idprovee"]);
+                p.IdProducto = Convert.ToInt32(tabla.Rows[0]["idproducto"]);
+                p.IdProveedor = Convert.ToInt32(tabla.Rows[0]["idproveedor"]);
+                p.Fecha = Convert.ToDateTime(tabla.Rows[0]["fecha"]);
+                p.Precio = Convert.ToDecimal(tabla.Rows[0]["precio"]);
             }
-            return provee;
+            return p;
         }
-
-        public void EditarProveeDal(Provee provee)
+        public void EditarProveeDal(Provee p)
         {
-            string consulta = "UPDATE provee SET idProducto = " + provee.IdProducto +
-                              ", idProveedor = " + provee.IdProveedor +
-                              ", fecha = '" + provee.Fecha.ToString("yyyy-MM-dd") +
-                              "', precio = " + provee.Precio +
-                              " WHERE idProvee = " + provee.IdProvee;
+            string consulta = "update provee set idproducto=" + p.IdProducto + "," +
+                                                        "idproveedor=" + p.IdProveedor + "," +
+                                                        "fecha='" + p.Fecha + "'," +
+                                                        "precio=" + p.Precio + " " +
+                                                "where idprovee=" + p.IdProvee;
             conexion.Ejecutar(consulta);
         }
-
         public void EliminarProveeDal(int id)
         {
-            string consulta = "DELETE FROM provee WHERE idProvee = " + id;
+            string consulta = "delete from provee where idprovee=" + id;
             conexion.Ejecutar(consulta);
         }
 
+        public DataTable ProveeDatosDal()
+        {
+            string consulta = "  SELECT PRODUCTO.NOMBRE, TIPOPROD.NOMBRE AS Expr1, MARCA.NOMBRE AS Expr2, PROVEEDOR.NOMBRE AS Expr3, PROVEEDOR.TELEFONO, PROVEE.FECHA, PROVEE.PRECIO " +
+                               " FROM PROVEE INNER JOIN " +
+                               " PRODUCTO ON PROVEE.IDPRODUCTO = PRODUCTO.IDPRODUCTO INNER JOIN" +
+                               " PROVEEDOR ON PROVEE.IDPROVEEDOR = PROVEEDOR.IDPROVEEDOR INNER JOIN" +
+                               " MARCA ON PRODUCTO.IDMARCA = MARCA.IDMARCA INNER JOIN" +
+                               " TIPOPROD ON PRODUCTO.IDTIPOPROD = TIPOPROD.IDTIPOPROD";
 
+            return conexion.EjecutarDataTabla(consulta, "fsdf");
+
+        }
     }
 }

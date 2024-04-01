@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaVentas.Modelos
+namespace SistemasVentas.Modelos
 {
     public class TipoProd
     {
@@ -12,5 +12,4 @@ namespace SistemaVentas.Modelos
         public string Nombre { get; set; }
         public string Estado { get; set; }
     }
-
 }

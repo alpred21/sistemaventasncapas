@@ -1,5 +1,5 @@
 ﻿using SistemasVentas.DAL;
-using SistemaVentas.Modelos;
+using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,30 +9,35 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.BSS
 {
-    public class VentaBss
+    public class VentaBSS
     {
-        VentaDal dal = new VentaDal();
+        VentaDAL dal = new VentaDAL();
         public DataTable ListarVentaBss()
         {
             return dal.ListarVentaDal();
         }
+
         public void InsertarVentaBss(Venta venta)
         {
-            dal.InsertarVentaDal(venta);
-        }
-        public Venta ObtenerVentaId(int id)
-        {
-            return dal.ObtenerVentaId(id);
+            dal.InsertarVentaDAL(venta);
         }
 
-        public void EditarVentaBss(Venta venta)
+        public Venta ObtenerVentaIdBss(int id)
         {
-            dal.EditarVentaDal(venta);
+            return dal.ObtenerVentaIdDal(id);
         }
-
+        public void EditarVentaBss(Venta p)
+        {
+            dal.EditarVentaDal(p);
+        }
         public void EliminarVentaBss(int id)
         {
             dal.EliminarVentaDal(id);
+        }
+
+        public DataTable VentaDatosBSS()
+        {
+            return dal.VentaDatosDal();
         }
     }
 }

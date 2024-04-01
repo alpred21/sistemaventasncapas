@@ -1,5 +1,5 @@
 ﻿using SistemasVentas.DAL;
-using SistemaVentas.Modelos;
+using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,30 +9,34 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.BSS
 {
-    public class UsuarioRolBss
+     public class UsuarioRolBSS
     {
-        UsuarioRolDal dal = new UsuarioRolDal();
+        UsuarioRolDAL dal = new UsuarioRolDAL();
         public DataTable ListarUsuarioRolBss()
         {
             return dal.ListarUsuarioRolDal();
         }
         public void InsertarUsuarioRolBss(UsuarioRol usuarioRol)
         {
-            dal.InsertarUsuarioRolDal(usuarioRol);
+            dal.InsertarUsuarioRolDAL(usuarioRol);
         }
-        public UsuarioRol ObtenerUsuarioRolId(int id)
+        public UsuarioRol ObtenerUsuarioRolIdBss(int id)
         {
-            return dal.ObtenerUsuarioRolId(id);
+            return dal.ObtenerUsuarioRolIdDal(id);
         }
-
-        public void EditarUsuarioRolBss(UsuarioRol usuarioRol)
+        public void EditarUsuarioRolBss(UsuarioRol p)
         {
-            dal.EditarUsuarioRolDal(usuarioRol);
+            dal.EditarUsuarioRolDal(p);
         }
-
         public void EliminarUsuarioRolBss(int id)
         {
             dal.EliminarUsuarioRolDal(id);
         }
+
+        public DataTable UsuarioRolDatosBSS()
+        {
+            return dal.UsuarioRolDatosDal();
+        }
+
     }
 }

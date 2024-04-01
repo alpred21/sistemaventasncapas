@@ -1,4 +1,4 @@
-﻿using SistemaVentas.Modelos;
+﻿using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,53 +8,62 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.DAL
 {
-    public class UsuarioRolDal
+    public class UsuarioRolDAL
     {
         public DataTable ListarUsuarioRolDal()
         {
-            string consulta = "select * from UsuarioRol";
+            string consulta = "select * from usuariorol";
             DataTable Lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return Lista;
-
         }
-        public void InsertarUsuarioRolDal(UsuarioRol usuarioRol)
+        public void InsertarUsuarioRolDAL(UsuarioRol usuarioRol)
         {
-            string consulta = "insert into usuariorol values('" + usuarioRol.IdUsuario + "'," +
-                                                           "'" + usuarioRol.IdRol + "'," +
-                                                      "'" + usuarioRol.FechaAsigna.ToString("yyyy-MM-dd") + "'," +
-                                                           "'Activo')";
+            string consulta = "insert into usuariorol values(" + usuarioRol.IdUsuario+ "," +
+                                                          "'" + usuarioRol.IdRol + "'," +
+                                                          "'" + usuarioRol.FechaAsigna + "'," +
+                                                          "'Activo')";
             conexion.Ejecutar(consulta);
         }
-        public UsuarioRol ObtenerUsuarioRolId(int id)
+        UsuarioRol u = new UsuarioRol();
+        public UsuarioRol ObtenerUsuarioRolIdDal(int id)
         {
-            string consulta = "SELECT * FROM usuarioRol WHERE idUsuarioRol = " + id;
+            string consulta = "select * from usuariorol where idusuariorol=" + id;
             DataTable tabla = conexion.EjecutarDataTabla(consulta, "asdas");
-            UsuarioRol usuarioRol = new UsuarioRol();
             if (tabla.Rows.Count > 0)
             {
-                usuarioRol.IdUsuarioRol = Convert.ToInt32(tabla.Rows[0]["idUsuarioRol"]);
-                usuarioRol.IdUsuario = Convert.ToInt32(tabla.Rows[0]["idUsuario"]);
-                usuarioRol.IdRol = Convert.ToInt32(tabla.Rows[0]["idRol"]);
-                usuarioRol.FechaAsigna = Convert.ToDateTime(tabla.Rows[0]["fechaAsigna"]);
-                usuarioRol.Estado = tabla.Rows[0]["estado"].ToString();
-            }
-            return usuarioRol;
-        }
 
-        public void EditarUsuarioRolDal(UsuarioRol usuarioRol)
+                u.IdUsuarioRol = Convert.ToInt32(tabla.Rows[0]["idusuariorol"]);
+                u.IdUsuario = Convert.ToInt32(tabla.Rows[0]["idusuario"]);
+                u.IdRol = Convert.ToInt32(tabla.Rows[0]["idrol"]);
+                u.FechaAsigna = Convert.ToDateTime(tabla.Rows[0]["fechaasigna"]);
+                u.Estado = tabla.Rows[0]["estado"].ToString();
+            }
+            return u;
+        }
+        public void EditarUsuarioRolDal(UsuarioRol p)
         {
-            string consulta = "UPDATE usuarioRol SET idUsuario = " + usuarioRol.IdUsuario +
-                              ", idRol = " + usuarioRol.IdRol +
-                              ", fechaAsigna = '" + usuarioRol.FechaAsigna.ToString("yyyy-MM-dd") +
-                              "', estado = '" + usuarioRol.Estado + "' " +
-                              "WHERE idUsuarioRol = " + usuarioRol.IdUsuarioRol;
+            string consulta = "update usuariorol set idusuario=" + p.IdUsuario + "," +
+                                                        "idrol=" + p.IdRol + "," +
+                                                        "fechaasigna='" + p.FechaAsigna + "', " +
+                                                        "estado='" + p.Estado + "' " +
+                                                "where idusuariorol=" + p.IdUsuarioRol;
             conexion.Ejecutar(consulta);
         }
-
         public void EliminarUsuarioRolDal(int id)
         {
-            string consulta = "DELETE FROM usuarioRol WHERE idUsuarioRol = " + id;
+            string consulta = "delete from usuariorol where idusuariorol=" + id;
             conexion.Ejecutar(consulta);
+        }
+
+        public DataTable UsuarioRolDatosDal()
+        {
+            string consulta = " SELECT USUARIOROL.FECHAASIGNA, USUARIO.CONTRASEÑA, USUARIO.NOMBREUSER, ROL.NOMBRE " +
+                               "FROM USUARIOROL INNER JOIN" +
+                               " USUARIO ON USUARIOROL.IDUSUARIO = USUARIO.IDUSUARIO INNER JOIN " +
+                               "ROL ON USUARIOROL.IDROL = ROL.IDROL";
+
+            return conexion.EjecutarDataTabla(consulta, "fsdf");
+
         }
     }
 }

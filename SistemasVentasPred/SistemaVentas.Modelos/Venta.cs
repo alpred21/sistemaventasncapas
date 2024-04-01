@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaVentas.Modelos
+namespace SistemasVentas.Modelos
 {
-    public class Venta
+    public  class Venta
     {
         public int IdVenta { get; set; }
         public int IdCliente { get; set; }

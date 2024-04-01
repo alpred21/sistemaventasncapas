@@ -1,4 +1,4 @@
-﻿using SistemaVentas.Modelos;
+﻿using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,56 +8,67 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.DAL
 {
-    public class VentaDal
+    public class VentaDAL
     {
         public DataTable ListarVentaDal()
         {
-            string consulta = "select * from Venta";
+            string consulta = "select * from venta";
             DataTable Lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return Lista;
-
         }
-        public void InsertarVentaDal(Venta venta)
+
+        public void InsertarVentaDAL(Venta venta)
         {
-            string consulta = "insert into venta values('" + venta.IdCliente + "'," +
-                                                           "'" + venta.IdVendedor + "'," +
-                                                           "'" + venta.Fecha.ToString("yyyy-MM-dd") + "'," +
-                                                           "'" + venta.Total + "'," +
-                                                           "'Activo')";
+            string consulta = "insert into venta values(" + venta.IdCliente + "," +
+                                                          "" + venta.IdVendedor + "," +
+                                                          "'" + venta.Fecha + "'," +
+                                                          "'" + venta.Total + "'," +
+                                                          "'Exitoso')";
             conexion.Ejecutar(consulta);
         }
-        public Venta ObtenerVentaId(int id)
+
+        public Venta ObtenerVentaIdDal(int id)
         {
-            string consulta = "SELECT * FROM venta WHERE idVenta = " + id;
+            string consulta = "select * from venta where idventa=" + id;
             DataTable tabla = conexion.EjecutarDataTabla(consulta, "asdas");
-            Venta venta = new Venta();
+            Venta v= new Venta();
             if (tabla.Rows.Count > 0)
             {
-                venta.IdVenta = Convert.ToInt32(tabla.Rows[0]["idVenta"]);
-                venta.IdCliente = Convert.ToInt32(tabla.Rows[0]["idCliente"]);
-                venta.IdVendedor = Convert.ToInt32(tabla.Rows[0]["idVendedor"]);
-                venta.Fecha = Convert.ToDateTime(tabla.Rows[0]["fecha"]);
-                venta.Total = Convert.ToDecimal(tabla.Rows[0]["total"]);
-                venta.Estado = tabla.Rows[0]["estado"].ToString();
+                v.IdVenta = Convert.ToInt32(tabla.Rows[0]["idventa"]);
+                v.IdCliente = Convert.ToInt32(tabla.Rows[0]["idcliente"]);
+                v.Fecha = Convert.ToDateTime(tabla.Rows[0]["fecha"]);
+                v.Total = Convert.ToInt32(tabla.Rows[0]["idventa"]);
+                v.Estado = tabla.Rows[0]["estado"].ToString();
             }
-            return venta;
-        }
+            return v;
 
-        public void EditarVentaDal(Venta venta)
+        }
+        public void EditarVentaDal(Venta v)
         {
-            string consulta = "UPDATE venta SET idCliente = " + venta.IdCliente +
-                              ", idVendedor = " + venta.IdVendedor +
-                              ", fecha = '" + venta.Fecha.ToString("yyyy-MM-dd") +
-                              "', total = " + venta.Total +
-                              ", estado = '" + venta.Estado + "' " +
-                              "WHERE idVenta = " + venta.IdVenta;
+            string consulta = "update venta set idcliente=" + v.IdCliente + "," +
+                                                        "idvendedor=" + v.IdVendedor + "," +
+                                                        "fecha='" + v.Fecha + "', " +
+                                                        "total=" + v.Total + "," +
+                                                        "estado='" + v.Estado + "' " +
+                                                "where idventa=" + v.IdVenta;
             conexion.Ejecutar(consulta);
         }
-
         public void EliminarVentaDal(int id)
         {
-            string consulta = "DELETE FROM venta WHERE idVenta = " + id;
+            string consulta = "delete from venta where idventa=" + id;
             conexion.Ejecutar(consulta);
         }
+        public DataTable VentaDatosDal()
+        {
+            string consulta = " SELECT CLIENTE.TIPOCLIENTE, USUARIO.NOMBREUSER, VENTA.TOTAL, VENTA.FECHA " +
+                               " FROM VENTA INNER JOIN " +
+                               " CLIENTE ON VENTA.IDCLIENTE = CLIENTE.IDCLIENTE INNER JOIN" +
+                               "  USUARIO ON VENTA.IDVENDEDOR = USUARIO.IDUSUARIO ";
+
+            return conexion.EjecutarDataTabla(consulta, "fsdf");
+
+        }
+
+
     }
 }

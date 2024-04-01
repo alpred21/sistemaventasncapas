@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaVentas.Modelos
+namespace SistemasVentas.Modelos
 {
     public class UsuarioRol
     {

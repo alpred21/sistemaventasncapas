@@ -1,5 +1,5 @@
 ﻿using SistemasVentas.DAL;
-using SistemaVentas.Modelos;
+using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,30 +9,33 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.BSS
 {
-    public class ProductoBss
+    public class ProductoBSS
     {
-        ProductoDal dal = new ProductoDal();
+        ProductoDAL dal = new ProductoDAL();
         public DataTable ListarProductoBss()
         {
             return dal.ListarProductoDal();
         }
         public void InsertarProductoBss(Producto producto)
         {
-            dal.InsertarProductoDal(producto);
-        }
-        public Producto ObtenerProductoId(int id)
-        {
-            return dal.ObtenerProductoId(id);
+            dal.InsertarProductoDAL(producto);
         }
 
-        public void EditarProductoBss(Producto producto)
+        public Producto ObtenerProductoIdBss(int id)
         {
-            dal.EditarProductoDal(producto);
+            return dal.ObtenerProductoIdDal(id);
         }
-
+        public void EditarProductoBss(Producto p)
+        {
+            dal.EditarProductoDal(p);
+        }
         public void EliminarProductoBss(int id)
         {
             dal.EliminarProductoDal(id);
+        }
+        public DataTable ProductoDatosBss()
+        {
+            return dal.ProductoDatosDal();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using SistemasVentas.DAL;
-using SistemaVentas.Modelos;
+using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,31 +9,34 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.BSS
 {
-    public class DetalleIngBss
+    public class DetalleingBSS
     {
-        DetalleIngDal dal = new DetalleIngDal();
-        public DataTable ListarDetalleIngBss()
+        DetalleingDAL dal = new DetalleingDAL();
+        public DataTable ListarDetalleingBss()
         {
-            return dal.ListarDetalleIngDal();
+            return dal.ListarDetalleingDal();
         }
 
-        public void InsertarDetalleIngBss(DetalleIng detalleIng)
+        public void InsertarDetalleingBss(Detalleing detalleing)
         {
-            dal.InsertarDetalleIngDal(detalleIng);
+            dal.InsertarDetalleingDAL(detalleing);
         }
-        public DetalleIng ObtenerDetalleIngId(int id)
+        public Detalleing ObtenerDetalleIngIdBss(int id)
         {
-            return dal.ObtenerDetalleIngId(id);
+            return dal.ObtenerDetalleIngIdDal(id);
         }
-
-        public void EditarDetalleIngBss(DetalleIng detalleIng)
+        public void EditarDetalleIngBss(Detalleing p)
         {
-            dal.EditarDetalleIngDal(detalleIng);
+            dal.EditarDetalleIngDal(p);
         }
-
         public void EliminarDetalleIngBss(int id)
         {
             dal.EliminarDetalleIngDal(id);
+        }
+
+        public DataTable DetalleingDatosBSS()
+        {
+            return dal.DetalleingDatosDal();
         }
     }
 

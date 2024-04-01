@@ -1,4 +1,4 @@
-﻿using SistemaVentas.Modelos;
+﻿using SistemasVentas.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,53 +8,65 @@ using System.Threading.Tasks;
 
 namespace SistemasVentas.DAL
 {
-    public class IngresoDal
+    public class IngresoDAL
     {
         public DataTable ListarIngresoDal()
         {
-            string consulta = "select * from Ingreso";
+            string consulta = "select * from ingreso";
             DataTable Lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return Lista;
-
         }
-        public void InsertarIngresoDal(Ingreso ingreso)
+
+        public void InsertarIngresoDAL(Ingreso ingreso)
         {
-            string consulta = "insert into ingreso values('" + ingreso.IdProveedor + "'," +
-                                                           "'" + ingreso.FechaIngreso.ToString("yyyy-MM-dd") + "'," +
-                                                           "'" + ingreso.Total + "'," +
-                                                           "'Activo')";
+            string consulta = "insert into ingreso values(" + ingreso.IdProveedor + "," +
+                                                          "'" + ingreso.FechaIngreso + "'," +
+                                                          "'" + ingreso.Total + "'," +
+                                                          "'Activo')";
             conexion.Ejecutar(consulta);
         }
-        public Ingreso ObtenerIngresoId(int id)
+
+        public Ingreso ObtenerIngresoIdDal(int id)
         {
-            string consulta = "SELECT * FROM ingreso WHERE idIngreso = " + id;
+            string consulta = "select * from ingreso where idingreso=" + id;
             DataTable tabla = conexion.EjecutarDataTabla(consulta, "asdas");
-            Ingreso ingreso = new Ingreso();
+            Ingreso i = new Ingreso();
             if (tabla.Rows.Count > 0)
             {
-                ingreso.IdIngreso = Convert.ToInt32(tabla.Rows[0]["idIngreso"]);
-                ingreso.IdProveedor = Convert.ToInt32(tabla.Rows[0]["idProveedor"]);
-                ingreso.FechaIngreso = Convert.ToDateTime(tabla.Rows[0]["fechaIngreso"]);
-                ingreso.Total = Convert.ToDecimal(tabla.Rows[0]["total"]);
-                ingreso.Estado = tabla.Rows[0]["estado"].ToString();
+                i.IdIngreso = Convert.ToInt32(tabla.Rows[0]["idingreso"]);
+                i.IdProveedor = Convert.ToInt32(tabla.Rows[0]["idproveedor"]);
+                i.FechaIngreso = Convert.ToDateTime(tabla.Rows[0]["fechaingreso"]);
+                i.Total = Convert.ToInt32(tabla.Rows[0]["total"]);
+                i.Estado = tabla.Rows[0]["estado"].ToString();
             }
-            return ingreso;
-        }
+            return i;
 
-        public void EditarIngresoDal(Ingreso ingreso)
+        }
+        public void EditarIngresoDal(Ingreso p)
         {
-            string consulta = "UPDATE ingreso SET idProveedor = " + ingreso.IdProveedor +
-                              ", fechaIngreso = '" + ingreso.FechaIngreso.ToString("yyyy-MM-dd") +
-                              "', total = " + ingreso.Total +
-                              ", estado = '" + ingreso.Estado + "' " +
-                              "WHERE idIngreso = " + ingreso.IdIngreso;
+            string consulta = "update ingreso set idproveedor=" + p.IdProveedor + "," +
+                                                        "fechaingreso='" + p.FechaIngreso + "'," +
+                                                        "total=" + p.Total + "," +
+                                                        "estado='" + p.Estado + "' " +
+                                                "where idingreso=" + p.IdIngreso;
             conexion.Ejecutar(consulta);
         }
-
         public void EliminarIngresoDal(int id)
         {
-            string consulta = "DELETE FROM ingreso WHERE idIngreso = " + id;
+            string consulta = "delete from ingreso where idingreso=" + id;
             conexion.Ejecutar(consulta);
         }
+
+        public DataTable IngresoDatosDal()
+        {
+            string consulta = " SELECT PROVEEDOR.NOMBRE, PROVEEDOR.TELEFONO, INGRESO.FECHAINGRESO, INGRESO.TOTAL" +
+                               " FROM INGRESO INNER JOIN " +
+                               " PROVEEDOR ON INGRESO.IDPROVEEDOR = PROVEEDOR.IDPROVEEDOR";
+
+            return conexion.EjecutarDataTabla(consulta, "fsdf");
+
+        }
+
+
     }
 }
