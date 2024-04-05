@@ -46,6 +46,7 @@
             pictureBox2 = new PictureBox();
             panelcargarform = new Panel();
             panel1 = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             submenuproductos.SuspendLayout();
             panel5.SuspendLayout();
@@ -61,7 +62,7 @@
             pictureBox3.Anchor = AnchorStyles.None;
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(453, 115);
+            pictureBox3.Location = new Point(343, 115);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Padding = new Padding(20);
             pictureBox3.Size = new Size(285, 259);
@@ -320,9 +321,9 @@
             panelcargarform.BackColor = Color.FromArgb(40, 40, 40);
             panelcargarform.Controls.Add(pictureBox3);
             panelcargarform.Dock = DockStyle.Fill;
-            panelcargarform.Location = new Point(0, 130);
+            panelcargarform.Location = new Point(220, 130);
             panelcargarform.Name = "panelcargarform";
-            panelcargarform.Size = new Size(984, 531);
+            panelcargarform.Size = new Size(764, 531);
             panelcargarform.TabIndex = 5;
             // 
             // panel1
@@ -330,6 +331,7 @@
             panel1.BackColor = Color.Black;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox2);
             panel1.Dock = DockStyle.Top;
@@ -338,13 +340,27 @@
             panel1.Size = new Size(984, 130);
             panel1.TabIndex = 3;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Magneto", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(824, 93);
+            label1.Name = "label1";
+            label1.Padding = new Padding(1);
+            label1.Size = new Size(157, 34);
+            label1.TabIndex = 19;
+            label1.Text = "VENTAS";
+            // 
             // InterfazVentasMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(984, 661);
-            Controls.Add(panelmenu);
             Controls.Add(panelcargarform);
+            Controls.Add(panelmenu);
             Controls.Add(panel1);
             Name = "InterfazVentasMenu";
             Text = "InterfazVentasMenu";
@@ -379,5 +395,6 @@
         private PictureBox pictureBox2;
         private Panel panelcargarform;
         private Panel panel1;
+        private Label label1;
     }
 }

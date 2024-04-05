@@ -45,13 +45,13 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(590, 426);
+            dataGridView1.Size = new Size(724, 426);
             dataGridView1.TabIndex = 1;
             // 
             // button1
             // 
             button1.DialogResult = DialogResult.OK;
-            button1.Location = new Point(490, 456);
+            button1.Location = new Point(624, 456);
             button1.Name = "button1";
             button1.Size = new Size(112, 23);
             button1.TabIndex = 2;
@@ -73,7 +73,7 @@
             // button3
             // 
             button3.DialogResult = DialogResult.OK;
-            button3.Location = new Point(150, 456);
+            button3.Location = new Point(216, 456);
             button3.Name = "button3";
             button3.Size = new Size(112, 23);
             button3.TabIndex = 4;
@@ -84,7 +84,7 @@
             // button4
             // 
             button4.DialogResult = DialogResult.OK;
-            button4.Location = new Point(297, 456);
+            button4.Location = new Point(420, 456);
             button4.Name = "button4";
             button4.Size = new Size(112, 23);
             button4.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(611, 502);
+            ClientSize = new Size(748, 492);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);

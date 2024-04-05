@@ -12,7 +12,7 @@ namespace SistemasVentas.DAL
     {
         public DataTable ListarClienteDal()
         {
-            string consulta = "SELECT IDPERSONA,IDCLIENTE,TIPOCLIENTE,CODIGOCLIENTE FROM CLIENTE WHERE ESTADO='ACTIVO'";
+            string consulta = "SELECT ESTADO,IDPERSONA,IDCLIENTE,TIPOCLIENTE,CODIGOCLIENTE FROM CLIENTE WHERE ESTADO='ACTIVO'";
             DataTable Lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return Lista;
         }

@@ -47,6 +47,7 @@
             pictureBox2 = new PictureBox();
             panelcargarform = new Panel();
             panel1 = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             submenuproductos.SuspendLayout();
             submenuingresos.SuspendLayout();
@@ -352,6 +353,7 @@
             panel1.BackColor = Color.Black;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox2);
             panel1.Dock = DockStyle.Top;
@@ -359,6 +361,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(984, 130);
             panel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Magneto", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(741, 93);
+            label1.Name = "label1";
+            label1.Padding = new Padding(1);
+            label1.Size = new Size(240, 34);
+            label1.TabIndex = 19;
+            label1.Text = "SUPERVISOR";
             // 
             // InterfazSupervisorMenu
             // 
@@ -402,5 +418,6 @@
         private PictureBox pictureBox2;
         private Panel panelcargarform;
         private Panel panel1;
+        private Label label1;
     }
 }

@@ -45,14 +45,14 @@ namespace SistemasVentas.VISTA.InterfazGerenteVista
             formhijo.BringToFront();
             formhijo.Show();
 
-           /* if (this.panelcargarform.Controls.Count > 0)
-                this.panelcargarform.Controls.RemoveAt(0);
-            Form fh = formCharge as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panelcargarform.Controls.Add(fh);
-            this.panelcargarform.Tag = fh;
-            fh.Show();*/
+            /* if (this.panelcargarform.Controls.Count > 0)
+                 this.panelcargarform.Controls.RemoveAt(0);
+             Form fh = formCharge as Form;
+             fh.TopLevel = false;
+             fh.Dock = DockStyle.Fill;
+             this.panelcargarform.Controls.Add(fh);
+             this.panelcargarform.Tag = fh;
+             fh.Show();*/
 
 
         }
@@ -109,6 +109,11 @@ namespace SistemasVentas.VISTA.InterfazGerenteVista
         private void buttontodos_Click(object sender, EventArgs e)
         {
             abrirform(new PersonaListarVista());
+        }
+
+        private void buttonusuariorol_Click(object sender, EventArgs e)
+        {
+            abrirform(new UsuarioRolVistas.UsuarioRolListarVistas());
         }
         #endregion
 
@@ -193,6 +198,7 @@ namespace SistemasVentas.VISTA.InterfazGerenteVista
         {
             Application.Exit();
         }
+
 
     }
 }

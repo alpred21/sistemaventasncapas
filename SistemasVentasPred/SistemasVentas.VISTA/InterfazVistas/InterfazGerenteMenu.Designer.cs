@@ -51,6 +51,7 @@
             buttonproductos = new Button();
             buttonprod = new Button();
             submenupersona = new Panel();
+            buttonusuariorol = new Button();
             buttontodos = new Button();
             buttonusuarios = new Button();
             buttonclientes = new Button();
@@ -58,6 +59,7 @@
             buttonpersona = new Button();
             panelcargarform = new Panel();
             pictureBox3 = new PictureBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelmenu.SuspendLayout();
@@ -75,6 +77,7 @@
             panel1.BackColor = Color.Black;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox2);
             panel1.Dock = DockStyle.Top;
@@ -158,7 +161,7 @@
             // 
             panel5.Controls.Add(button3);
             panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(0, 655);
+            panel5.Location = new Point(0, 680);
             panel5.Name = "panel5";
             panel5.Size = new Size(203, 87);
             panel5.TabIndex = 19;
@@ -178,7 +181,7 @@
             buttonrol.ForeColor = Color.White;
             buttonrol.Image = (Image)resources.GetObject("buttonrol.Image");
             buttonrol.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonrol.Location = new Point(0, 610);
+            buttonrol.Location = new Point(0, 635);
             buttonrol.Name = "buttonrol";
             buttonrol.Size = new Size(203, 45);
             buttonrol.TabIndex = 18;
@@ -192,7 +195,7 @@
             submenuventas.Controls.Add(buttondetallevent);
             submenuventas.Controls.Add(buttonvent);
             submenuventas.Dock = DockStyle.Top;
-            submenuventas.Location = new Point(0, 540);
+            submenuventas.Location = new Point(0, 565);
             submenuventas.Name = "submenuventas";
             submenuventas.Size = new Size(203, 70);
             submenuventas.TabIndex = 17;
@@ -253,7 +256,7 @@
             buttonventa.ForeColor = Color.White;
             buttonventa.Image = (Image)resources.GetObject("buttonventa.Image");
             buttonventa.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonventa.Location = new Point(0, 495);
+            buttonventa.Location = new Point(0, 520);
             buttonventa.Name = "buttonventa";
             buttonventa.Size = new Size(203, 45);
             buttonventa.TabIndex = 16;
@@ -268,7 +271,7 @@
             submenuingresos.Controls.Add(buttondetalleing);
             submenuingresos.Controls.Add(buttoningresos);
             submenuingresos.Dock = DockStyle.Top;
-            submenuingresos.Location = new Point(0, 390);
+            submenuingresos.Location = new Point(0, 415);
             submenuingresos.Name = "submenuingresos";
             submenuingresos.Size = new Size(203, 105);
             submenuingresos.TabIndex = 15;
@@ -349,7 +352,7 @@
             buttoning.ForeColor = Color.White;
             buttoning.Image = (Image)resources.GetObject("buttoning.Image");
             buttoning.ImageAlign = ContentAlignment.MiddleLeft;
-            buttoning.Location = new Point(0, 345);
+            buttoning.Location = new Point(0, 370);
             buttoning.Name = "buttoning";
             buttoning.Size = new Size(203, 45);
             buttoning.TabIndex = 14;
@@ -364,7 +367,7 @@
             submenuproductos.Controls.Add(buttonmarcas);
             submenuproductos.Controls.Add(buttonproductos);
             submenuproductos.Dock = DockStyle.Top;
-            submenuproductos.Location = new Point(0, 240);
+            submenuproductos.Location = new Point(0, 265);
             submenuproductos.Name = "submenuproductos";
             submenuproductos.Size = new Size(203, 105);
             submenuproductos.TabIndex = 13;
@@ -445,7 +448,7 @@
             buttonprod.ForeColor = Color.White;
             buttonprod.Image = (Image)resources.GetObject("buttonprod.Image");
             buttonprod.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonprod.Location = new Point(0, 195);
+            buttonprod.Location = new Point(0, 220);
             buttonprod.Name = "buttonprod";
             buttonprod.Size = new Size(203, 45);
             buttonprod.TabIndex = 12;
@@ -456,16 +459,37 @@
             // submenupersona
             // 
             submenupersona.BackColor = Color.FromArgb(6, 21, 1);
-            submenupersona.Controls.Add(buttontodos);
+            submenupersona.Controls.Add(buttonusuariorol);
             submenupersona.Controls.Add(buttonusuarios);
             submenupersona.Controls.Add(buttonclientes);
             submenupersona.Controls.Add(buttonproveedores);
+            submenupersona.Controls.Add(buttontodos);
             submenupersona.Dock = DockStyle.Top;
             submenupersona.Location = new Point(0, 45);
             submenupersona.Name = "submenupersona";
-            submenupersona.Size = new Size(203, 150);
+            submenupersona.Size = new Size(203, 175);
             submenupersona.TabIndex = 11;
             submenupersona.Visible = false;
+            // 
+            // buttonusuariorol
+            // 
+            buttonusuariorol.BackColor = Color.Transparent;
+            buttonusuariorol.Dock = DockStyle.Top;
+            buttonusuariorol.FlatAppearance.BorderSize = 0;
+            buttonusuariorol.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 64, 0);
+            buttonusuariorol.FlatAppearance.MouseOverBackColor = Color.FromArgb(0, 64, 0);
+            buttonusuariorol.FlatStyle = FlatStyle.Flat;
+            buttonusuariorol.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonusuariorol.ForeColor = Color.White;
+            buttonusuariorol.Location = new Point(0, 140);
+            buttonusuariorol.Name = "buttonusuariorol";
+            buttonusuariorol.Padding = new Padding(30, 0, 0, 0);
+            buttonusuariorol.Size = new Size(203, 35);
+            buttonusuariorol.TabIndex = 5;
+            buttonusuariorol.Text = "Usuario rol";
+            buttonusuariorol.TextAlign = ContentAlignment.MiddleLeft;
+            buttonusuariorol.UseVisualStyleBackColor = false;
+            buttonusuariorol.Click += buttonusuariorol_Click;
             // 
             // buttontodos
             // 
@@ -477,7 +501,7 @@
             buttontodos.FlatStyle = FlatStyle.Flat;
             buttontodos.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             buttontodos.ForeColor = Color.White;
-            buttontodos.Location = new Point(0, 105);
+            buttontodos.Location = new Point(0, 0);
             buttontodos.Name = "buttontodos";
             buttontodos.Padding = new Padding(30, 0, 0, 0);
             buttontodos.Size = new Size(203, 35);
@@ -497,7 +521,7 @@
             buttonusuarios.FlatStyle = FlatStyle.Flat;
             buttonusuarios.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             buttonusuarios.ForeColor = Color.White;
-            buttonusuarios.Location = new Point(0, 70);
+            buttonusuarios.Location = new Point(0, 105);
             buttonusuarios.Name = "buttonusuarios";
             buttonusuarios.Padding = new Padding(30, 0, 0, 0);
             buttonusuarios.Size = new Size(203, 35);
@@ -517,7 +541,7 @@
             buttonclientes.FlatStyle = FlatStyle.Flat;
             buttonclientes.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             buttonclientes.ForeColor = Color.White;
-            buttonclientes.Location = new Point(0, 35);
+            buttonclientes.Location = new Point(0, 70);
             buttonclientes.Name = "buttonclientes";
             buttonclientes.Padding = new Padding(30, 0, 0, 0);
             buttonclientes.Size = new Size(203, 35);
@@ -537,7 +561,7 @@
             buttonproveedores.FlatStyle = FlatStyle.Flat;
             buttonproveedores.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point);
             buttonproveedores.ForeColor = Color.White;
-            buttonproveedores.Location = new Point(0, 0);
+            buttonproveedores.Location = new Point(0, 35);
             buttonproveedores.Name = "buttonproveedores";
             buttonproveedores.Padding = new Padding(30, 0, 0, 0);
             buttonproveedores.Size = new Size(203, 35);
@@ -593,7 +617,21 @@
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
             // 
-            // InterfazGerente
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Magneto", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(813, 93);
+            label1.Name = "label1";
+            label1.Padding = new Padding(1);
+            label1.Size = new Size(171, 34);
+            label1.TabIndex = 19;
+            label1.Text = "GERENTE";
+            // 
+            // InterfazGerenteMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -604,7 +642,7 @@
             Controls.Add(panelmenu);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "InterfazGerente";
+            Name = "InterfazGerenteMenu";
             StartPosition = FormStartPosition.Manual;
             Text = "InterfazGerente";
             panel1.ResumeLayout(false);
@@ -658,5 +696,7 @@
         private Button buttoning;
         private Panel panel5;
         private PictureBox pictureBox3;
+        private Button buttonusuariorol;
+        private Label label1;
     }
 }
