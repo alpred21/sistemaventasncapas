@@ -593,7 +593,7 @@
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
             // 
-            // InterfazGerenteMenu
+            // InterfazGerente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -604,9 +604,9 @@
             Controls.Add(panelmenu);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "InterfazGerenteMenu";
+            Name = "InterfazGerente";
             StartPosition = FormStartPosition.Manual;
-            Text = "InterfazGerenteMenu";
+            Text = "InterfazGerente";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

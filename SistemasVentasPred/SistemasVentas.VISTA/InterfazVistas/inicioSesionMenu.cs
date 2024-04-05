@@ -1,5 +1,6 @@
 ﻿using SistemasVentas.DAL;
 using SistemasVentas.VISTA.InterfazGerenteVista;
+using SistemasVentas.VISTA.InterfazVistas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,17 +26,21 @@ namespace SistemasVentas.VISTA.InterfazInicioSesionVista
 
             if (conexion.VerificarUsuario(nombreuser, contraseña))
             {
-
                 InterfazGerenteMenu abrir = new InterfazGerenteMenu();
                 abrir.Show();
+                this.Hide();
             }
             else if (conexion.VerificarUsuario2(nombreuser, contraseña))
             {
-                MessageBox.Show("Usuario no tiene roles válidos");
+                InterfazSupervisorMenu abrir = new InterfazSupervisorMenu();
+                abrir.Show();
+                this.Hide();
             }
             else if (conexion.VerificarUsuario3(nombreuser, contraseña))
             {
-                MessageBox.Show("Usuario no tiene roles válidos");
+                InterfazVentasMenu abrir = new InterfazVentasMenu();
+                abrir.Show();
+                this.Hide();
             }
             else
             {

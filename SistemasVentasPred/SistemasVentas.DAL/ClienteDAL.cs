@@ -12,7 +12,7 @@ namespace SistemasVentas.DAL
     {
         public DataTable ListarClienteDal()
         {
-            string consulta = "select * from cliente";
+            string consulta = "SELECT IDPERSONA,IDCLIENTE,TIPOCLIENTE,CODIGOCLIENTE FROM CLIENTE WHERE ESTADO='ACTIVO'";
             DataTable Lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return Lista;
         }
@@ -51,7 +51,7 @@ namespace SistemasVentas.DAL
         }
         public void EliminarClienteDal(int id)
         {
-            string consulta = "delete from cliente where idcliente=" + id;
+            string consulta = "UPDATE CLIENTE SET ESTADO='INACTIVO' where idcliente=" + id;
             conexion.Ejecutar(consulta);
         }
 
